@@ -36,13 +36,16 @@ import com.google.inject.Singleton;
 public class CommitMessageLengthValidation implements CommitValidationListener {
   private final static int DEFAULT_MAX_SUBJECT_LENGTH = 65;
   private final static int DEFAULT_MAX_LINE_LENGTH = 70;
+  private final static boolean DEFAULT_REJECT_TOO_LONG = false;
   private final static String COMMIT_MESSAGE_SECTION = "commitmessage";
   private final static String MAX_SUBJECT_LENGTH_KEY = "maxSubjectLength";
   private final static String MAX_LINE_LENGTH_KEY = "maxLineLength";
+  private final static String REJECT_TOO_LONG_KEY = "rejectTooLong";
 
   private final Config config;
   private final int maxSubjectLength;
   private final int maxLineLength;
+  private boolean rejectTooLong;
 
   @Inject
   public CommitMessageLengthValidation(@GerritServerConfig Config gerritConfig)
@@ -54,6 +57,21 @@ public class CommitMessageLengthValidation implements CommitValidationListener {
     this.maxLineLength = config.getInt(
         COMMIT_MESSAGE_SECTION, null,
         MAX_LINE_LENGTH_KEY, DEFAULT_MAX_LINE_LENGTH);
+    this.rejectTooLong = config.getBoolean(
+        COMMIT_MESSAGE_SECTION, REJECT_TOO_LONG_KEY,
+        DEFAULT_REJECT_TOO_LONG);
+  }
+
+  private void onLineTooLong(final AbbreviatedObjectId id,
+      List<CommitValidationMessage> messagesList, final String errorMessage)
+          throws CommitValidationException {
+    final String message = id.name() + ": " + errorMessage;
+    if (rejectTooLong) {
+      messagesList.add(new CommitValidationMessage(message, true));
+      throw new CommitValidationException("Commit length validation failed", messagesList);
+    } else {
+      messagesList.add(new CommitValidationMessage("(W) " + message, false));
+    }
   }
 
   @Override
@@ -64,9 +82,9 @@ public class CommitMessageLengthValidation implements CommitValidationListener {
     List<CommitValidationMessage> messages = new ArrayList<CommitValidationMessage>();
 
     if (this.maxSubjectLength < commit.getShortMessage().length()) {
-      messages.add(new CommitValidationMessage("(W) " + id.name() //
-         + ": commit subject >" + this.maxSubjectLength //
-         + " characters; use shorter first paragraph", false));
+      onLineTooLong(id, messages,
+          new String("commit subject >" + this.maxSubjectLength
+              + " characters; use shorter first paragraph"));
     }
 
     int longLineCnt = 0, nonEmptyCnt = 0;
@@ -80,9 +98,9 @@ public class CommitMessageLengthValidation implements CommitValidationListener {
     }
 
     if (0 < longLineCnt && 33 < longLineCnt * 100 / nonEmptyCnt) {
-      messages.add(new CommitValidationMessage("(W) " + id.name() //
-          + ": commit message lines >" + this.maxLineLength //
-          + " characters; manually wrap lines", false));
+      onLineTooLong(id, messages,
+          new String("commit message lines >" + this.maxLineLength
+              + " characters; manually wrap lines"));
     }
 
     return messages;
