@@ -39,13 +39,16 @@ public class CommitMessageLengthValidator implements CommitValidationListener {
 
   private final static int DEFAULT_MAX_SUBJECT_LENGTH = 65;
   private final static int DEFAULT_MAX_LINE_LENGTH = 70;
+  private final static boolean DEFAULT_REJECT_TOO_LONG = true;
   private final static String CONFIG_FILE = "commitmessage.config";
   private final static String COMMIT_MESSAGE_SECTION = "commitmessage";
   private final static String MAX_SUBJECT_LENGTH_KEY = "maxSubjectLength";
   private final static String MAX_LINE_LENGTH_KEY = "maxLineLength";
+  private final static String REJECT_TOO_LONG_KEY = "rejectTooLong";
 
   private int maxSubjectLength;
   private int maxLineLength;
+  private boolean rejectTooLong;
 
   @Inject
   public CommitMessageLengthValidator(final SitePaths site)
@@ -61,6 +64,8 @@ public class CommitMessageLengthValidator implements CommitValidationListener {
             DEFAULT_MAX_SUBJECT_LENGTH);
         this.maxLineLength = cfg.getInt(COMMIT_MESSAGE_SECTION, MAX_LINE_LENGTH_KEY,
             DEFAULT_MAX_LINE_LENGTH);
+        this.rejectTooLong = cfg.getBoolean(COMMIT_MESSAGE_SECTION, REJECT_TOO_LONG_KEY,
+            DEFAULT_REJECT_TOO_LONG);
         return;
       } catch (ConfigInvalidException e) {
         throw new ConfigInvalidException(String.format(
@@ -72,6 +77,7 @@ public class CommitMessageLengthValidator implements CommitValidationListener {
     }
     this.maxSubjectLength = DEFAULT_MAX_SUBJECT_LENGTH;
     this.maxLineLength = DEFAULT_MAX_LINE_LENGTH;
+    this.rejectTooLong = DEFAULT_REJECT_TOO_LONG;
   }
 
   @Override
@@ -81,9 +87,14 @@ public class CommitMessageLengthValidator implements CommitValidationListener {
     CommitValidationResult result = new CommitValidationResult();
     
     if (this.maxSubjectLength < commit.getShortMessage().length()) {
-      result.addMessage("(W) " + id.name() //
-         + ": commit subject >" + this.maxSubjectLength //
-         + " characters; use shorter first paragraph");
+      final String message = id.name() //
+          + ": commit subject >" + this.maxSubjectLength //
+          + " characters; use shorter first paragraph";
+      if (this.rejectTooLong) {
+        return CommitValidationResult.newFailure(message);
+      } else {
+        result.addMessage("(W) " + message);
+      }
     }
 
     int longLineCnt = 0, nonEmptyCnt = 0;
@@ -97,9 +108,14 @@ public class CommitMessageLengthValidator implements CommitValidationListener {
     }
 
     if (0 < longLineCnt && 33 < longLineCnt * 100 / nonEmptyCnt) {
-      result.addMessage("(W) " + id.name() //
+      final String message = id.name() //
           + ": commit message lines >" + this.maxLineLength //
-          + " characters; manually wrap lines");
+          + " characters; manually wrap lines";
+      if (this.rejectTooLong) {
+        return CommitValidationResult.newFailure(message);
+      } else {
+        result.addMessage("(W) " + message);
+      }
     }
 
     return CommitValidationResult.SUCCESS;
