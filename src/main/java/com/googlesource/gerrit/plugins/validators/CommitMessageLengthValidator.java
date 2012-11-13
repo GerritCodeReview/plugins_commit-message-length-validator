@@ -13,18 +13,66 @@
 // limitations under the License.
 package com.googlesource.gerrit.plugins.validators;
 
+import java.io.File;
+import java.io.IOException;
+
+import org.eclipse.jgit.errors.ConfigInvalidException;
 import org.eclipse.jgit.lib.AbbreviatedObjectId;
 import org.eclipse.jgit.revwalk.RevCommit;
+import org.eclipse.jgit.storage.file.FileBasedConfig;
+import org.eclipse.jgit.util.FS;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.google.gerrit.extensions.annotations.Listen;
+import com.google.gerrit.server.config.SitePaths;
 import com.google.gerrit.server.events.CommitReceivedEvent;
 import com.google.gerrit.server.git.validators.CommitValidationListener;
 import com.google.gerrit.server.git.validators.CommitValidationResult;
+import com.google.inject.Inject;
 import com.google.inject.Singleton;
 
 @Listen
 @Singleton
 public class CommitMessageLengthValidator implements CommitValidationListener {
+  private static Logger log = LoggerFactory.getLogger(CommitValidationListener.class);
+
+  private final static int DEFAULT_MAX_SUBJECT_LENGTH = 65;
+  private final static int DEFAULT_MAX_LINE_LENGTH = 70;
+  private final static String CONFIG_FILE = "commitmessage.config";
+  private final static String COMMIT_MESSAGE_SECTION = "commitmessage";
+  private final static String MAX_SUBJECT_LENGTH_KEY = "maxSubjectLength";
+  private final static String MAX_LINE_LENGTH_KEY = "maxLineLength";
+
+  private int maxSubjectLength;
+  private int maxLineLength;
+
+  @Inject
+  public CommitMessageLengthValidator(final SitePaths site)
+      throws ConfigInvalidException, IOException {
+    final File cfgPath = new File(site.etc_dir, CONFIG_FILE);
+    if (!cfgPath.exists() || cfgPath.length() == 0) {
+      log.warn("Config file " + cfgPath + " does not exist or is empty; using default values");
+    } else {
+      final FileBasedConfig cfg = new FileBasedConfig(cfgPath, FS.DETECTED);
+      try {
+        cfg.load();
+        this.maxSubjectLength = cfg.getInt(COMMIT_MESSAGE_SECTION, MAX_SUBJECT_LENGTH_KEY,
+            DEFAULT_MAX_SUBJECT_LENGTH);
+        this.maxLineLength = cfg.getInt(COMMIT_MESSAGE_SECTION, MAX_LINE_LENGTH_KEY,
+            DEFAULT_MAX_LINE_LENGTH);
+        return;
+      } catch (ConfigInvalidException e) {
+        throw new ConfigInvalidException(String.format(
+            "Config file %s is invalid: %s", cfgPath, e.getMessage()), e);
+      } catch (IOException e) {
+        throw new IOException(String.format(
+            "Cannot read %s: %s", cfgPath,  e.getMessage()), e);
+      }
+    }
+    this.maxSubjectLength = DEFAULT_MAX_SUBJECT_LENGTH;
+    this.maxLineLength = DEFAULT_MAX_LINE_LENGTH;
+  }
 
   @Override
   public CommitValidationResult onCommitReceived(CommitReceivedEvent receiveEvent) {
@@ -32,9 +80,10 @@ public class CommitMessageLengthValidator implements CommitValidationListener {
     final AbbreviatedObjectId id = commit.abbreviate(6);
     CommitValidationResult result = new CommitValidationResult();
     
-    if (65 < commit.getShortMessage().length()) {
+    if (this.maxSubjectLength < commit.getShortMessage().length()) {
       result.addMessage("(W) " + id.name() //
-         + ": commit subject >65 characters; use shorter first paragraph");
+         + ": commit subject >" + this.maxSubjectLength //
+         + " characters; use shorter first paragraph");
     }
 
     int longLineCnt = 0, nonEmptyCnt = 0;
@@ -42,14 +91,15 @@ public class CommitMessageLengthValidator implements CommitValidationListener {
       if (!line.trim().isEmpty()) {
         nonEmptyCnt++;
       }
-      if (70 < line.length()) {
+      if (this.maxLineLength < line.length()) {
         longLineCnt++;
       }
     }
 
     if (0 < longLineCnt && 33 < longLineCnt * 100 / nonEmptyCnt) {
       result.addMessage("(W) " + id.name() //
-          + ": commit message lines >70 characters; manually wrap lines");
+          + ": commit message lines >" + this.maxLineLength //
+          + " characters; manually wrap lines");
     }
 
     return CommitValidationResult.SUCCESS;
