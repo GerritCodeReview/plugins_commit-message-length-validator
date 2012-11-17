@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "AAALsH///2o\u003d",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/validators/CommitMessageLengthValidator.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2012-11-17T03:39:15Z",
+      "side": 1,
+      "message": "Should be CommitMessageLengthValidation (for consistency with the interface).",
+      "revId": "fbcb504c11fcd2344ea3bcc15463c1250d6d8322",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAALsH///2s\u003d",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/validators/CommitMessageLengthValidator.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2012-11-17T03:39:15Z",
+      "side": 1,
+      "message": "nit: extra space.",
+      "revId": "fbcb504c11fcd2344ea3bcc15463c1250d6d8322",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAALsH///2k\u003d",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/validators/CommitMessageLengthValidator.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2012-11-17T03:39:15Z",
+      "side": 1,
+      "message": "Not your fault here ... but misspelled this method.\n\nAs \"validated\" is a boolean property, it should be \"setValidated\" the validator method :-(\n\nNot for this patch, but a new fix on method name would be needed.",
+      "revId": "fbcb504c11fcd2344ea3bcc15463c1250d6d8322",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
