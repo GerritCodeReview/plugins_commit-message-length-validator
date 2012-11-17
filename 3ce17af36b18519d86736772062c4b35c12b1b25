@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "AAALsn///3s\u003d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2012-11-17T03:49:34Z",
+      "side": 1,
+      "message": "Right, as we discussed earlier this week I will completely rework this to use project based configs.",
+      "parentUuid": "AAALsH///2c\u003d",
+      "revId": "3ce17af36b18519d86736772062c4b35c12b1b25",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "AAALsH///2Y\u003d",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/validators/CommitMessageLengthValidator.java",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2012-11-17T03:46:04Z",
       "side": 1,
       "message": "info instead of warning ? Default values should be the out-of-the-box behaviour right IMHO.",
+      "revId": "3ce17af36b18519d86736772062c4b35c12b1b25",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAALsn///3w\u003d",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/validators/CommitMessageLengthValidator.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2012-11-17T03:49:34Z",
+      "side": 1,
+      "message": "OK, I\u0027ll remove this",
+      "parentUuid": "AAALsH///2Y\u003d",
       "revId": "3ce17af36b18519d86736772062c4b35c12b1b25",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
