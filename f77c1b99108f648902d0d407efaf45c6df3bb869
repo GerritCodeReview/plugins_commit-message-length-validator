@@ -1,0 +1,157 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "M63d-sAY",
+        "filename": ".gitignore",
+        "patchSetId": 8
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2012-12-13T08:29:01Z",
+      "side": 1,
+      "message": "Since [1] we are also ignoring Intellij IDEA files. I think we should add it here too, it is also ignored for the replication plugin.\n\n  .idea\n\n[1] https://gerrit-review.googlesource.com/34990",
+      "revId": "f77c1b99108f648902d0d407efaf45c6df3bb869",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "M65fQxPk",
+        "filename": "pom.xml",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2012-12-13T08:29:01Z",
+      "side": 1,
+      "message": "All comments in this file come from comparing this pom with the pom of the replication plugin. The replication plugin as the only core plugin so far, should be a good reference.",
+      "revId": "f77c1b99108f648902d0d407efaf45c6df3bb869",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "M65eChAU",
+        "filename": "pom.xml",
+        "patchSetId": 8
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2012-12-13T08:29:01Z",
+      "side": 1,
+      "message": "In the pom.xml of the replication plugin we also specify the packaging. Should it be done here too?\n\n  \u003cpackaging\u003ejar\u003c/packaging\u003e",
+      "revId": "f77c1b99108f648902d0d407efaf45c6df3bb869",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "M67eHiBQ",
+        "filename": "pom.xml",
+        "patchSetId": 8
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2012-12-13T08:29:01Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be an URL for this project?\n\nI would simply remove this as the URL is optional and we also don\u0027t set it for the replication plugin.",
+      "revId": "f77c1b99108f648902d0d407efaf45c6df3bb869",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "M6zeUWD4",
+        "filename": "pom.xml",
+        "patchSetId": 8
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2012-12-13T08:29:01Z",
+      "side": 1,
+      "message": "s/PLUGIN/plugin",
+      "revId": "f77c1b99108f648902d0d407efaf45c6df3bb869",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "M6xeXVEU",
+        "filename": "pom.xml",
+        "patchSetId": 8
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2012-12-13T08:29:01Z",
+      "side": 1,
+      "message": "Should the core plugins have a consistent format for the title?\nThe replication plugin sets:\n\n  \u003cImplementation-Title\u003ePlugin ${project.artifactId}\u003c/Implementation-Title\u003e",
+      "revId": "f77c1b99108f648902d0d407efaf45c6df3bb869",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "M69eM-Do",
+        "filename": "pom.xml",
+        "patchSetId": 8
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2012-12-13T08:29:01Z",
+      "side": 1,
+      "message": "Don\u0027t we need to set Gerrit-ApiVersion too?\n\n  \u003cGerrit-ApiVersion\u003e${Gerrit-ApiVersion}\u003c/Gerrit-ApiVersion\u003e",
+      "revId": "f77c1b99108f648902d0d407efaf45c6df3bb869",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "M61ehzJY",
+        "filename": "pom.xml",
+        "patchSetId": 8
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2012-12-13T08:29:01Z",
+      "side": 1,
+      "message": "could be:\n\n  \u003cartifactId\u003egerrit-${Gerrit-ApiType}-api\u003c/artifactId\u003e",
+      "revId": "f77c1b99108f648902d0d407efaf45c6df3bb869",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "M61e47MY",
+        "filename": "pom.xml",
+        "patchSetId": 8
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2012-12-13T08:29:01Z",
+      "side": 1,
+      "message": "I think we also need to specify the repository from which the used gerrit-api can be retrieved:\n\n  \u003crepositories\u003e\n    \u003crepository\u003e\n      \u003cid\u003egerrit-api-repository\u003c/id\u003e\n      \u003curl\u003ehttps://gerrit-api.commondatastorage.googleapis.com/snapshot/\u003c/url\u003e\n    \u003c/repository\u003e\n  \u003c/repositories\u003e\n\nActually we need to make the Gerrit 2.6-SNAPSHOT api jars available in this repository.",
+      "revId": "f77c1b99108f648902d0d407efaf45c6df3bb869",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
