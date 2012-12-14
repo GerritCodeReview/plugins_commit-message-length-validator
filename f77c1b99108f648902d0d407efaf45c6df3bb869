@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "M8PLzyPs",
+        "filename": ".gitignore",
+        "patchSetId": 8
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2012-12-14T05:04:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "M63d-sAY",
+      "revId": "f77c1b99108f648902d0d407efaf45c6df3bb869",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "M65fQxPk",
         "filename": "pom.xml",
         "patchSetId": 8
