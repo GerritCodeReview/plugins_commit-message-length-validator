@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "OBvzBSYA",
+        "filename": "pom.xml",
+        "patchSetId": 11
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2013-01-10T12:36:05Z",
+      "side": 1,
+      "message": "I think this should rather be 1.0-SNAPSHOT.\n\n1.0 means it is released and as released version the plugin should not depend on a SNAPSHOT Gerrit-ApiVersion. Just keep it as 1.0-SNAPSHOT, the core plugins will be released together with the next Gerrit release and then the plugin version and the Gerrit-ApiVersion will be updated together.",
+      "revId": "285ee47b5c27dbc46fffbad874c4884b83a154cf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "OBlzTnVk",
         "filename": "pom.xml",
         "patchSetId": 11
