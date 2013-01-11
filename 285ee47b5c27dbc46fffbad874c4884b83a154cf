@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "OC3fx0CQ",
+        "filename": "pom.xml",
+        "patchSetId": 11
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2013-01-11T08:00:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "OBvzBSYA",
+      "revId": "285ee47b5c27dbc46fffbad874c4884b83a154cf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "OBlzTnVk",
         "filename": "pom.xml",
         "patchSetId": 11
@@ -30,6 +48,24 @@
       "writtenOn": "2013-01-10T12:23:40Z",
       "side": 1,
       "message": "You need to add\n  \u003cscope\u003eprovided\u003c/scope\u003e\nhere, otherwise the gerrit-plugin-api.jar will be packaged under\nWEB-INF\\plugins in gerrit-full-2.6.jar\n\nsee also my summary comment on [1] on patch set 8\n\n[1] https://gerrit-review.googlesource.com/39340",
+      "revId": "285ee47b5c27dbc46fffbad874c4884b83a154cf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "OC1f2zB4",
+        "filename": "pom.xml",
+        "patchSetId": 11
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2013-01-11T08:00:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "OBlzTnVk",
       "revId": "285ee47b5c27dbc46fffbad874c4884b83a154cf",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
