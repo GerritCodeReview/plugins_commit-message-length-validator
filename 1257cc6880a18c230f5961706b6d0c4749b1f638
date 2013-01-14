@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "OM08YrX4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2013-01-14T11:15:28Z",
+      "side": 1,
+      "message": "\u0027user configurable\u0027 sounds like this is a per user setting, but looking further it seems to be a server global setting?",
+      "revId": "1257cc6880a18c230f5961706b6d0c4749b1f638",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "OM28dcW0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2013-01-14T11:15:28Z",
+      "side": 1,
+      "message": "Is it okay that plugins have their config files in the site\u0027s etc folder? I thought a plugin should rather request a data directory [1] and store it\u0027s configuration files there.\n\n[1] https://gerrit-review.googlesource.com/Documentation/dev-plugins.html#data-directory",
+      "revId": "1257cc6880a18c230f5961706b6d0c4749b1f638",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
