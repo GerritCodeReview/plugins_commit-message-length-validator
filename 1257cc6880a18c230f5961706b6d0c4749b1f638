@@ -87,6 +87,24 @@
       "revId": "1257cc6880a18c230f5961706b6d0c4749b1f638",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "OSxdIlF4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2013-01-15T09:22:44Z",
+      "side": 1,
+      "message": "Good idea.  I just uploaded a new patch set that handles the config in the default file, but it does not have the \"plugin\" section support.  I\u0027ll look into that tomorrow.",
+      "parentUuid": "OTHb70AU",
+      "revId": "1257cc6880a18c230f5961706b6d0c4749b1f638",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
