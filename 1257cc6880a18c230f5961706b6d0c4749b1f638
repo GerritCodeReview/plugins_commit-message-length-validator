@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "OS-clIK8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2013-01-15T08:56:44Z",
+      "side": 1,
+      "message": "Yes, it\u0027s a global setting.  By \"user\" I mean the site owner/administrator.\n\nI\u0027ll reword it to make it clearer.",
+      "parentUuid": "OM08YrX4",
+      "revId": "1257cc6880a18c230f5961706b6d0c4749b1f638",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "OM28dcW0",
         "filename": "/COMMIT_MSG",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2013-01-14T11:15:28Z",
       "side": 1,
       "message": "Is it okay that plugins have their config files in the site\u0027s etc folder? I thought a plugin should rather request a data directory [1] and store it\u0027s configuration files there.\n\n[1] https://gerrit-review.googlesource.com/Documentation/dev-plugins.html#data-directory",
+      "revId": "1257cc6880a18c230f5961706b6d0c4749b1f638",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "OS9cinKQ",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2013-01-15T08:56:44Z",
+      "side": 1,
+      "message": "I was not aware of that.  Thanks.\n\nBut actually I was thinking to change this to use the site config file.  That would make it a bit simpler, I think.",
+      "parentUuid": "OM28dcW0",
       "revId": "1257cc6880a18c230f5961706b6d0c4749b1f638",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
