@@ -69,6 +69,24 @@
       "revId": "1257cc6880a18c230f5961706b6d0c4749b1f638",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "OTHb70AU",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2013-01-15T09:16:11Z",
+      "side": 1,
+      "message": "I agree, having all config parameter in one file makes it also easier for the administrators, but we  should ensure that config parameters from different plugins do not conflict. Maybe we can have an own section per plugin?\n\n  [plugin \"PLUGIN-NAME\"]\n    key \u003d value",
+      "parentUuid": "OS9cinKQ",
+      "revId": "1257cc6880a18c230f5961706b6d0c4749b1f638",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
