@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "OfMYOgj8",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/validators/CommitMessageLengthValidation.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1003883
+      },
+      "writtenOn": "2013-01-17T04:54:36Z",
+      "side": 1,
+      "message": "May I suggest docs describing these?",
+      "revId": "8b7bf5b560ea4a5a39b06332ea8f20fc0eaf4c34",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
