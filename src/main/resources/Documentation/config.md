@@ -6,7 +6,7 @@ subject and message body, and reports warnings to the git client
 if the lengths are exceeded.
 
 The maximum lengths of the subject and message body are can be
-configured in the standard Gerrit config file `config.gerrit`.
+configured in the standard Gerrit config file `gerrit.config`.
 
 commitmessage.maxSubjectLength
 :	Maximum length of the commit message's subject line.  If
