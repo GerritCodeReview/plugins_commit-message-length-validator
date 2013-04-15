@@ -22,12 +22,12 @@ limitations under the License.
   <artifactId>commit-message-length-validator</artifactId>
   <groupId>com.googlesource.gerrit.plugins.validators</groupId>
   <packaging>jar</packaging>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.0.1-SNAPSHOT</version>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <Gerrit-ApiType>plugin</Gerrit-ApiType>
-    <Gerrit-ApiVersion>2.6-rc0</Gerrit-ApiVersion>
+    <Gerrit-ApiVersion>2.7-SNAPSHOT</Gerrit-ApiVersion>
   </properties>
 
   <build>
