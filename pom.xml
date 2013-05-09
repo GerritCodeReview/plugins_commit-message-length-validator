@@ -20,6 +20,7 @@ limitations under the License.
   <modelVersion>4.0.0</modelVersion>
 
   <artifactId>commit-message-length-validator</artifactId>
+  <name>commit-message-length-validator</name>
   <groupId>com.googlesource.gerrit.plugins.validators</groupId>
   <packaging>jar</packaging>
   <version>2.6-rc2</version>
