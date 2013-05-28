@@ -25,15 +25,15 @@ import org.eclipse.jgit.revwalk.RevCommit;
 import com.google.gerrit.extensions.annotations.Listen;
 import com.google.gerrit.server.config.GerritServerConfig;
 import com.google.gerrit.server.events.CommitReceivedEvent;
-import com.google.gerrit.server.git.validators.CommitValidationException;
-import com.google.gerrit.server.git.validators.CommitValidationListener;
-import com.google.gerrit.server.git.validators.CommitValidationMessage;
+import com.google.gerrit.server.git.validators.ReceiveCommitValidationException;
+import com.google.gerrit.server.git.validators.ReceiveCommitValidationMessage;
+import com.google.gerrit.server.git.validators.ReceiveCommitValidationListener;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 
 @Listen
 @Singleton
-public class CommitMessageLengthValidation implements CommitValidationListener {
+public class CommitMessageLengthValidation implements ReceiveCommitValidationListener {
   private final static int DEFAULT_MAX_SUBJECT_LENGTH = 65;
   private final static int DEFAULT_MAX_LINE_LENGTH = 70;
   private final static String COMMIT_MESSAGE_SECTION = "commitmessage";
@@ -57,14 +57,14 @@ public class CommitMessageLengthValidation implements CommitValidationListener {
   }
 
   @Override
-  public List<CommitValidationMessage> onCommitReceived(CommitReceivedEvent receiveEvent)
-      throws CommitValidationException {
+  public List<ReceiveCommitValidationMessage> onCommitReceived(CommitReceivedEvent receiveEvent)
+      throws ReceiveCommitValidationException {
     final RevCommit commit = receiveEvent.commit;
     final AbbreviatedObjectId id = commit.abbreviate(7);
-    List<CommitValidationMessage> messages = new ArrayList<CommitValidationMessage>();
+    List<ReceiveCommitValidationMessage> messages = new ArrayList<ReceiveCommitValidationMessage>();
 
     if (this.maxSubjectLength < commit.getShortMessage().length()) {
-      messages.add(new CommitValidationMessage("(W) " + id.name() //
+      messages.add(new ReceiveCommitValidationMessage("(W) " + id.name() //
          + ": commit subject >" + this.maxSubjectLength //
          + " characters; use shorter first paragraph", false));
     }
@@ -80,7 +80,7 @@ public class CommitMessageLengthValidation implements CommitValidationListener {
     }
 
     if (0 < longLineCnt && 33 < longLineCnt * 100 / nonEmptyCnt) {
-      messages.add(new CommitValidationMessage("(W) " + id.name() //
+      messages.add(new ReceiveCommitValidationMessage("(W) " + id.name() //
           + ": commit message lines >" + this.maxLineLength //
           + " characters; manually wrap lines", false));
     }
