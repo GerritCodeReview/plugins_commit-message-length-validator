@@ -21,8 +21,11 @@ import org.eclipse.jgit.errors.ConfigInvalidException;
 import org.eclipse.jgit.lib.AbbreviatedObjectId;
 import org.eclipse.jgit.lib.Config;
 import org.eclipse.jgit.revwalk.RevCommit;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.google.gerrit.extensions.annotations.Listen;
+import com.google.gerrit.extensions.events.LifecycleListener;
 import com.google.gerrit.server.config.GerritServerConfig;
 import com.google.gerrit.server.events.CommitReceivedEvent;
 import com.google.gerrit.server.git.validators.CommitValidationException;
@@ -46,6 +49,20 @@ public class CommitMessageLengthValidation implements CommitValidationListener {
   private final int maxSubjectLength;
   private final int maxLineLength;
   private boolean rejectTooLong;
+
+  @Listen
+  public static class Lifecycle implements LifecycleListener {
+    private static final Logger log = LoggerFactory.getLogger(CommitMessageLengthValidation.class);
+    @Override
+    public void start() {
+      log.error("commit validation plugin start");
+    }
+
+    @Override
+    public void stop() {
+      log.error("commit validation plugin stop");
+    }
+  }
 
   @Inject
   public CommitMessageLengthValidation(@GerritServerConfig Config gerritConfig)
