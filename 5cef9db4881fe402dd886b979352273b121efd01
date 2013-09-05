@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "52e4a950_01dc4a5a",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/validators/CommitMessageLengthValidation.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2013-09-05T09:24:55Z",
+      "side": 1,
+      "message": "Note: the log messages here are each output twice.  I\u0027ve raised Issue 2106 for this.",
+      "revId": "5cef9db4881fe402dd886b979352273b121efd01",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
