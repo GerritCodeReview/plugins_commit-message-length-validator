@@ -36,15 +36,18 @@ import com.google.inject.Singleton;
 public class CommitMessageLengthValidation implements CommitValidationListener {
   private final static int DEFAULT_MAX_SUBJECT_LENGTH = 65;
   private final static int DEFAULT_MAX_LINE_LENGTH = 70;
+  private final static int DEFAULT_LONG_LINES_THRESHOLD = 33;
   private final static boolean DEFAULT_REJECT_TOO_LONG = false;
   private final static String COMMIT_MESSAGE_SECTION = "commitmessage";
   private final static String MAX_SUBJECT_LENGTH_KEY = "maxSubjectLength";
   private final static String MAX_LINE_LENGTH_KEY = "maxLineLength";
   private final static String REJECT_TOO_LONG_KEY = "rejectTooLong";
+  private final static String LONG_LINES_THRESHOLD_KEY = "longLinesThreshold";
 
   private final Config config;
   private final int maxSubjectLength;
   private final int maxLineLength;
+  private final int longLinesThreshold;
   private boolean rejectTooLong;
 
   @Inject
@@ -60,6 +63,9 @@ public class CommitMessageLengthValidation implements CommitValidationListener {
     this.rejectTooLong = config.getBoolean(
         COMMIT_MESSAGE_SECTION, REJECT_TOO_LONG_KEY,
         DEFAULT_REJECT_TOO_LONG);
+    this.longLinesThreshold = config.getInt(
+        COMMIT_MESSAGE_SECTION, null,
+        LONG_LINES_THRESHOLD_KEY, DEFAULT_LONG_LINES_THRESHOLD);
   }
 
   private void onLineTooLong(final AbbreviatedObjectId id,
@@ -97,9 +103,11 @@ public class CommitMessageLengthValidation implements CommitValidationListener {
       }
     }
 
-    if (0 < longLineCnt && 33 < longLineCnt * 100 / nonEmptyCnt) {
+    if (0 < longLineCnt &&
+        longLinesThreshold < longLineCnt * 100 / nonEmptyCnt) {
       onLineTooLong(id, messages,
-          new String("commit message lines >" + this.maxLineLength
+          new String("too many commit message lines longer than "
+              + this.maxLineLength
               + " characters; manually wrap lines"));
     }
 
