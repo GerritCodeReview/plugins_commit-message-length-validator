@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8f6fe175_c902d127",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/validators/CommitMessageLengthValidation.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2014-02-17T09:06:05Z",
+      "side": 1,
+      "message": "Should probably put some sanity check on the value that is configured.  I think the getInt will only ensure that it\u0027s an integer.\n\nHowever, the same comment also applies to the other configuration parameters, so I will do that for all of them in a follow-up change.",
+      "range": {
+        "startLine": 66,
+        "startChar": 4,
+        "endLine": 68,
+        "endChar": 63
+      },
+      "revId": "fad07012d9d06d4ee93820ceaae45b88070d6f18",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
