@@ -54,18 +54,19 @@ public class CommitMessageLengthValidation implements CommitValidationListener {
   public CommitMessageLengthValidation(@GerritServerConfig Config gerritConfig)
       throws ConfigInvalidException, IOException {
     this.config = gerritConfig;
-    this.maxSubjectLength = config.getInt(
-        COMMIT_MESSAGE_SECTION, null,
+    this.maxSubjectLength = nonNegativeInt(
         MAX_SUBJECT_LENGTH_KEY, DEFAULT_MAX_SUBJECT_LENGTH);
-    this.maxLineLength = config.getInt(
-        COMMIT_MESSAGE_SECTION, null,
+    this.maxLineLength = nonNegativeInt(
         MAX_LINE_LENGTH_KEY, DEFAULT_MAX_LINE_LENGTH);
     this.rejectTooLong = config.getBoolean(
-        COMMIT_MESSAGE_SECTION, REJECT_TOO_LONG_KEY,
-        DEFAULT_REJECT_TOO_LONG);
-    this.longLinesThreshold = config.getInt(
-        COMMIT_MESSAGE_SECTION, null,
+        COMMIT_MESSAGE_SECTION, REJECT_TOO_LONG_KEY, DEFAULT_REJECT_TOO_LONG);
+    this.longLinesThreshold = nonNegativeInt(
         LONG_LINES_THRESHOLD_KEY, DEFAULT_LONG_LINES_THRESHOLD);
+  }
+
+  private int nonNegativeInt(String name, int defaultValue) {
+    int value = this.config.getInt(COMMIT_MESSAGE_SECTION, null, name, defaultValue);
+    return value >= 0 ? value : defaultValue;
   }
 
   private void onLineTooLong(final AbbreviatedObjectId id,
