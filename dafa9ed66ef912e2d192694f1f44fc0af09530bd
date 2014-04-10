@@ -22,6 +22,30 @@
       "revId": "dafa9ed66ef912e2d192694f1f44fc0af09530bd",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f9574fb2_a4ff82ce",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/validators/CommitMessageLengthValidation.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2014-04-10T11:39:41Z",
+      "side": 1,
+      "message": "Thanks. I\u0027ll fix this tomorrow.",
+      "parentUuid": "990d73ec_d9e6d355",
+      "range": {
+        "startLine": 108,
+        "startChar": 36,
+        "endLine": 108,
+        "endChar": 51
+      },
+      "revId": "dafa9ed66ef912e2d192694f1f44fc0af09530bd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
