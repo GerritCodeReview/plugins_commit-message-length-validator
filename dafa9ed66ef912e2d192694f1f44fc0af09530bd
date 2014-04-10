@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f9574fb2_240cf253",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/validators/CommitMessageLengthValidation.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2014-04-10T12:01:26Z",
+      "side": 1,
+      "message": "Yes.  Not sure what I was thinking when I wrote that mess below :(",
+      "parentUuid": "b90877da_1a12fd72",
+      "range": {
+        "startLine": 106,
+        "startChar": 8,
+        "endLine": 106,
+        "endChar": 24
+      },
+      "revId": "dafa9ed66ef912e2d192694f1f44fc0af09530bd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "990d73ec_d9e6d355",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/validators/CommitMessageLengthValidation.java",
         "patchSetId": 3
