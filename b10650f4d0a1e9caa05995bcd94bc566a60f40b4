@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "847b4d5f_82e95acf",
+        "filename": ".gitignore",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2014-07-05T11:48:30Z",
+      "side": 1,
+      "message": "Do we need the leading slash?\n\nOther folders above don\u0027t have it.",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 9
+      },
+      "revId": "b10650f4d0a1e9caa05995bcd94bc566a60f40b4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
