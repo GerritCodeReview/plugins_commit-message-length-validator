@@ -22,6 +22,30 @@
       "revId": "b10650f4d0a1e9caa05995bcd94bc566a60f40b4",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "39448c56_afc25966",
+        "filename": ".gitignore",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1004034
+      },
+      "writtenOn": "2014-07-10T12:45:31Z",
+      "side": 1,
+      "message": "this is more specific to what we want to ignore, I think all the other entries above should also start with a slash and also this is how the .gitignore in many other gerrit plugins looks like",
+      "parentUuid": "847b4d5f_82e95acf",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 9
+      },
+      "revId": "b10650f4d0a1e9caa05995bcd94bc566a60f40b4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
