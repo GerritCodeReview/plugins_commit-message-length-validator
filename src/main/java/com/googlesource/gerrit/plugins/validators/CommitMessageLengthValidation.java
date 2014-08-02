@@ -37,7 +37,7 @@ public class CommitMessageLengthValidation implements CommitValidationListener {
   private final static int DEFAULT_MAX_SUBJECT_LENGTH = 65;
   private final static int DEFAULT_MAX_LINE_LENGTH = 70;
   private final static int DEFAULT_LONG_LINES_THRESHOLD = 33;
-  private final static boolean DEFAULT_REJECT_TOO_LONG = false;
+  private final static RejectTooLong DEFAULT_REJECT_TOO_LONG = RejectTooLong.FALSE;
   private final static String COMMIT_MESSAGE_SECTION = "commitmessage";
   private final static String MAX_SUBJECT_LENGTH_KEY = "maxSubjectLength";
   private final static String MAX_LINE_LENGTH_KEY = "maxLineLength";
@@ -48,7 +48,7 @@ public class CommitMessageLengthValidation implements CommitValidationListener {
   private final int maxSubjectLength;
   private final int maxLineLength;
   private final int longLinesThreshold;
-  private boolean rejectTooLong;
+  private RejectTooLong rejectTooLong;
 
   @Inject
   public CommitMessageLengthValidation(@GerritServerConfig Config gerritConfig)
@@ -60,19 +60,21 @@ public class CommitMessageLengthValidation implements CommitValidationListener {
     this.maxLineLength = config.getInt(
         COMMIT_MESSAGE_SECTION, null,
         MAX_LINE_LENGTH_KEY, DEFAULT_MAX_LINE_LENGTH);
-    this.rejectTooLong = config.getBoolean(
-        COMMIT_MESSAGE_SECTION, REJECT_TOO_LONG_KEY,
-        DEFAULT_REJECT_TOO_LONG);
+    this.rejectTooLong = config.getEnum(
+        COMMIT_MESSAGE_SECTION, null,
+        REJECT_TOO_LONG_KEY, DEFAULT_REJECT_TOO_LONG);
     this.longLinesThreshold = config.getInt(
         COMMIT_MESSAGE_SECTION, null,
         LONG_LINES_THRESHOLD_KEY, DEFAULT_LONG_LINES_THRESHOLD);
   }
 
-  private void onLineTooLong(final AbbreviatedObjectId id,
+  private void onLineTooLong(final AbbreviatedObjectId id, String refName,
       List<CommitValidationMessage> messagesList, final String errorMessage)
           throws CommitValidationException {
     final String message = id.name() + ": " + errorMessage;
-    if (rejectTooLong) {
+    if (rejectTooLong == RejectTooLong.TRUE
+        || (rejectTooLong == RejectTooLong.FOR_REVIEW && !refName
+            .startsWith("refs/heads/"))) {
       messagesList.add(new CommitValidationMessage(message, true));
       throw new CommitValidationException("Commit length validation failed", messagesList);
     } else {
@@ -85,10 +87,11 @@ public class CommitMessageLengthValidation implements CommitValidationListener {
       throws CommitValidationException {
     final RevCommit commit = receiveEvent.commit;
     final AbbreviatedObjectId id = commit.abbreviate(7);
+    String refName = receiveEvent.command.getRefName();
     List<CommitValidationMessage> messages = new ArrayList<CommitValidationMessage>();
 
     if (this.maxSubjectLength < commit.getShortMessage().length()) {
-      onLineTooLong(id, messages,
+      onLineTooLong(id, refName, messages,
           new String("commit subject >" + this.maxSubjectLength
               + " characters; use shorter first paragraph"));
     }
@@ -104,7 +107,7 @@ public class CommitMessageLengthValidation implements CommitValidationListener {
     }
 
     if (longLineCnt > (longLinesThreshold * nonEmptyCnt) / 100) {
-      onLineTooLong(id, messages,
+      onLineTooLong(id, refName, messages,
           new String("too many commit message lines longer than "
               + this.maxLineLength
               + " characters; manually wrap lines"));
