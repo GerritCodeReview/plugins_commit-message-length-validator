@@ -21,3 +21,6 @@ commitmessage.rejectTooLong
 :	If set to `true`, reject commits whose subject or line
 	length exceeds the maximum allowed length.  If not
 	specified, defaults to `false`.
+	If set to `for-review`, it works as `false` for commits
+	on `refs/heads/*` and as `true` for commits on all other
+	refs. This allows rejecting only on refs for review. 
