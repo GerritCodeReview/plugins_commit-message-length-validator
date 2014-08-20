@@ -13,15 +13,6 @@
 // limitations under the License.
 package com.googlesource.gerrit.plugins.validators;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
-import org.eclipse.jgit.errors.ConfigInvalidException;
-import org.eclipse.jgit.lib.AbbreviatedObjectId;
-import org.eclipse.jgit.lib.Config;
-import org.eclipse.jgit.revwalk.RevCommit;
-
 import com.google.gerrit.extensions.annotations.Listen;
 import com.google.gerrit.server.config.GerritServerConfig;
 import com.google.gerrit.server.events.CommitReceivedEvent;
@@ -30,6 +21,15 @@ import com.google.gerrit.server.git.validators.CommitValidationListener;
 import com.google.gerrit.server.git.validators.CommitValidationMessage;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
+
+import org.eclipse.jgit.errors.ConfigInvalidException;
+import org.eclipse.jgit.lib.AbbreviatedObjectId;
+import org.eclipse.jgit.lib.Config;
+import org.eclipse.jgit.revwalk.RevCommit;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 @Listen
 @Singleton
