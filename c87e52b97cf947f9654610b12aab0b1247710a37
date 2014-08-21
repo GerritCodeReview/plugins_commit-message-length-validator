@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f33f75e6_fdeea722",
+        "filename": "BUCK",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2014-08-21T13:20:30Z",
+      "side": 1,
+      "message": "Always comma in the end,",
+      "range": {
+        "startLine": 6,
+        "startChar": 4,
+        "endLine": 6,
+        "endChar": 56
+      },
+      "revId": "c87e52b97cf947f9654610b12aab0b1247710a37",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
