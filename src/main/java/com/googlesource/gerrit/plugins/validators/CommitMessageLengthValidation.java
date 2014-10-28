@@ -22,12 +22,10 @@ import com.google.gerrit.server.git.validators.CommitValidationMessage;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 
-import org.eclipse.jgit.errors.ConfigInvalidException;
 import org.eclipse.jgit.lib.AbbreviatedObjectId;
 import org.eclipse.jgit.lib.Config;
 import org.eclipse.jgit.revwalk.RevCommit;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,7 +50,7 @@ public class CommitMessageLengthValidation implements CommitValidationListener {
 
   @Inject
   public CommitMessageLengthValidation(@GerritServerConfig Config gerritConfig)
-      throws ConfigInvalidException, IOException {
+      {
     this.config = gerritConfig;
     this.maxSubjectLength = config.getInt(
         COMMIT_MESSAGE_SECTION, null,
