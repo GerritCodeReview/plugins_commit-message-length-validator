@@ -83,7 +83,7 @@ public class CommitMessageLengthValidation implements CommitValidationListener {
       throws CommitValidationException {
     final RevCommit commit = receiveEvent.commit;
     final AbbreviatedObjectId id = commit.abbreviate(7);
-    List<CommitValidationMessage> messages = new ArrayList<CommitValidationMessage>();
+    List<CommitValidationMessage> messages = new ArrayList<>();
 
     if (this.maxSubjectLength < commit.getShortMessage().length()) {
       onLineTooLong(id, messages,
