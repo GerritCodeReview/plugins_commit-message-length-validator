@@ -32,15 +32,15 @@ import java.util.List;
 @Listen
 @Singleton
 public class CommitMessageLengthValidation implements CommitValidationListener {
-  private final static int DEFAULT_MAX_SUBJECT_LENGTH = 65;
-  private final static int DEFAULT_MAX_LINE_LENGTH = 70;
-  private final static int DEFAULT_LONG_LINES_THRESHOLD = 33;
-  private final static boolean DEFAULT_REJECT_TOO_LONG = false;
-  private final static String COMMIT_MESSAGE_SECTION = "commitmessage";
-  private final static String MAX_SUBJECT_LENGTH_KEY = "maxSubjectLength";
-  private final static String MAX_LINE_LENGTH_KEY = "maxLineLength";
-  private final static String REJECT_TOO_LONG_KEY = "rejectTooLong";
-  private final static String LONG_LINES_THRESHOLD_KEY = "longLinesThreshold";
+  private static final int DEFAULT_MAX_SUBJECT_LENGTH = 65;
+  private static final int DEFAULT_MAX_LINE_LENGTH = 70;
+  private static final int DEFAULT_LONG_LINES_THRESHOLD = 33;
+  private static final boolean DEFAULT_REJECT_TOO_LONG = false;
+  private static final String COMMIT_MESSAGE_SECTION = "commitmessage";
+  private static final String MAX_SUBJECT_LENGTH_KEY = "maxSubjectLength";
+  private static final String MAX_LINE_LENGTH_KEY = "maxLineLength";
+  private static final String REJECT_TOO_LONG_KEY = "rejectTooLong";
+  private static final String LONG_LINES_THRESHOLD_KEY = "longLinesThreshold";
 
   private final Config config;
   private final int maxSubjectLength;
@@ -49,8 +49,7 @@ public class CommitMessageLengthValidation implements CommitValidationListener {
   private boolean rejectTooLong;
 
   @Inject
-  public CommitMessageLengthValidation(@GerritServerConfig Config gerritConfig)
-      {
+  public CommitMessageLengthValidation(@GerritServerConfig Config gerritConfig) {
     this.config = gerritConfig;
     this.maxSubjectLength = nonNegativeInt(
         MAX_SUBJECT_LENGTH_KEY, DEFAULT_MAX_SUBJECT_LENGTH);
@@ -92,7 +91,8 @@ public class CommitMessageLengthValidation implements CommitValidationListener {
               + " characters; use shorter first paragraph"));
     }
 
-    int longLineCnt = 0, nonEmptyCnt = 0;
+    int longLineCnt = 0;
+    int nonEmptyCnt = 0;
     for (String line : commit.getFullMessage().split("\n")) {
       if (!line.trim().isEmpty()) {
         nonEmptyCnt++;
