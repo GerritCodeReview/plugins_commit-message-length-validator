@@ -87,8 +87,8 @@ public class CommitMessageLengthValidation implements CommitValidationListener {
 
     if (this.maxSubjectLength < commit.getShortMessage().length()) {
       onLineTooLong(id, messages,
-          new String("commit subject >" + this.maxSubjectLength
-              + " characters; use shorter first paragraph"));
+          "commit subject >" + this.maxSubjectLength
+          + " characters; use shorter first paragraph");
     }
 
     int longLineCnt = 0;
@@ -104,9 +104,9 @@ public class CommitMessageLengthValidation implements CommitValidationListener {
 
     if (longLineCnt > (longLinesThreshold * nonEmptyCnt) / 100) {
       onLineTooLong(id, messages,
-          new String("too many commit message lines longer than "
-              + this.maxLineLength
-              + " characters; manually wrap lines"));
+          "too many commit message lines longer than "
+          + this.maxLineLength
+          + " characters; manually wrap lines");
     }
 
     return messages;
