@@ -21,3 +21,8 @@ commitmessage.rejectTooLong
 :	If set to `true`, reject commits whose subject or line
 	length exceeds the maximum allowed length.  If not
 	specified, defaults to `false`.
+
+commitmessage.rejectNoMsgBody
+:	If set to `true`, reject commits that do not contain a commit
+    message body or description.  If not specified, defaults
+    to `false`.
