@@ -36,10 +36,12 @@ public class CommitMessageLengthValidation implements CommitValidationListener {
   private static final int DEFAULT_MAX_LINE_LENGTH = 70;
   private static final int DEFAULT_LONG_LINES_THRESHOLD = 33;
   private static final boolean DEFAULT_REJECT_TOO_LONG = false;
+  private static final boolean DEFAULT_REJECT_NO_MSG_BODY = false;
   private static final String COMMIT_MESSAGE_SECTION = "commitmessage";
   private static final String MAX_SUBJECT_LENGTH_KEY = "maxSubjectLength";
   private static final String MAX_LINE_LENGTH_KEY = "maxLineLength";
   private static final String REJECT_TOO_LONG_KEY = "rejectTooLong";
+  private static final String REJECT_NO_MSG_BODY_KEY = "rejectNoMsgBody";
   private static final String LONG_LINES_THRESHOLD_KEY = "longLinesThreshold";
 
   private final Config config;
@@ -47,6 +49,7 @@ public class CommitMessageLengthValidation implements CommitValidationListener {
   private final int maxLineLength;
   private final int longLinesThreshold;
   private boolean rejectTooLong;
+  private boolean rejectNoMsgBody;
 
   @Inject
   public CommitMessageLengthValidation(@GerritServerConfig Config gerritConfig) {
@@ -59,6 +62,8 @@ public class CommitMessageLengthValidation implements CommitValidationListener {
         COMMIT_MESSAGE_SECTION, REJECT_TOO_LONG_KEY, DEFAULT_REJECT_TOO_LONG);
     this.longLinesThreshold = nonNegativeInt(
         LONG_LINES_THRESHOLD_KEY, DEFAULT_LONG_LINES_THRESHOLD);
+    this.rejectNoMsgBody = config.getBoolean(COMMIT_MESSAGE_SECTION,
+        REJECT_NO_MSG_BODY_KEY, DEFAULT_REJECT_NO_MSG_BODY);
   }
 
   private int nonNegativeInt(String name, int defaultValue) {
@@ -73,6 +78,18 @@ public class CommitMessageLengthValidation implements CommitValidationListener {
     if (rejectTooLong) {
       messagesList.add(new CommitValidationMessage(message, true));
       throw new CommitValidationException("Commit length validation failed", messagesList);
+    }
+    messagesList.add(new CommitValidationMessage("(W) " + message, false));
+  }
+
+  private void onNoMessageBody(final AbbreviatedObjectId id,
+      List<CommitValidationMessage> messagesList, String errorMessage)
+          throws CommitValidationException {
+    String message = id.name() + ": " + errorMessage;
+    if (rejectNoMsgBody) {
+      messagesList.add(new CommitValidationMessage(message, true));
+      throw new CommitValidationException(
+          "Commit message validation failed", messagesList);
     }
     messagesList.add(new CommitValidationMessage("(W) " + message, false));
   }
@@ -92,13 +109,26 @@ public class CommitMessageLengthValidation implements CommitValidationListener {
 
     int longLineCnt = 0;
     int nonEmptyCnt = 0;
+    int subjectLineCnt = 0;
     for (String line : commit.getFullMessage().split("\n")) {
       if (!line.trim().isEmpty()) {
+        // subject can span multiple lines
+        if (commit.getShortMessage().contains(line)) {
+          subjectLineCnt++;
+        }
         nonEmptyCnt++;
       }
       if (this.maxLineLength < line.length()) {
         longLineCnt++;
       }
+    }
+    int bodyLineCnt =
+        nonEmptyCnt - (commit.getFooterLines().size() + subjectLineCnt);
+
+    // Do not enforce changes coming from inline edit's 'edit project' feature
+    if (!commit.getShortMessage().equals("Edit Project Config") &&
+        bodyLineCnt <= 0) {
+      onNoMessageBody(id, messages, "Commit message is missing a body");
     }
 
     if (longLineCnt > (longLinesThreshold * nonEmptyCnt) / 100) {
