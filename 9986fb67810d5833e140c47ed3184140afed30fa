@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "17f0de9e_adcfbdbb",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/validators/CommitMessageLengthValidation.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2016-12-29T10:02:29Z",
+      "side": 1,
+      "message": "No final in new code.",
+      "range": {
+        "startLine": 86,
+        "startChar": 50,
+        "endLine": 86,
+        "endChar": 55
+      },
+      "revId": "9986fb67810d5833e140c47ed3184140afed30fa",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a1ba32a_fb9d87a5",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/validators/CommitMessageLengthValidation.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2016-12-29T10:02:29Z",
+      "side": 1,
+      "message": "same here.",
+      "range": {
+        "startLine": 88,
+        "startChar": 4,
+        "endLine": 88,
+        "endChar": 9
+      },
+      "revId": "9986fb67810d5833e140c47ed3184140afed30fa",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a1ba32a_dba24be1",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/validators/CommitMessageLengthValidation.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2016-12-29T10:02:29Z",
+      "side": 1,
+      "message": "Put this comment before line 115.",
+      "range": {
+        "startLine": 112,
+        "startChar": 39,
+        "endLine": 112,
+        "endChar": 73
+      },
+      "revId": "9986fb67810d5833e140c47ed3184140afed30fa",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17f0de9e_edd9c584",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/validators/CommitMessageLengthValidation.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2016-12-29T10:02:29Z",
+      "side": 1,
+      "message": "To me the next statement is self explained, so not sure if this comment is needed.",
+      "range": {
+        "startLine": 125,
+        "startChar": 4,
+        "endLine": 125,
+        "endChar": 88
+      },
+      "revId": "9986fb67810d5833e140c47ed3184140afed30fa",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17f0de9e_cdd68954",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/validators/CommitMessageLengthValidation.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2016-12-29T10:02:29Z",
+      "side": 1,
+      "message": "Parentheses not needed after ternary operator was removed.",
+      "range": {
+        "startLine": 127,
+        "startChar": 72,
+        "endLine": 127,
+        "endChar": 73
+      },
+      "revId": "9986fb67810d5833e140c47ed3184140afed30fa",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17f0de9e_8dcc81c8",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/validators/CommitMessageLengthValidation.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2016-12-29T10:02:29Z",
+      "side": 1,
+      "message": "Not needed.",
+      "range": {
+        "startLine": 127,
+        "startChar": 78,
+        "endLine": 127,
+        "endChar": 91
+      },
+      "revId": "9986fb67810d5833e140c47ed3184140afed30fa",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
