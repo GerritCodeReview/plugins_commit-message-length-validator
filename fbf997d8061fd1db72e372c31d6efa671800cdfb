@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "17f0de9e_50afd231",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/validators/CommitMessageLengthValidation.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2016-12-31T17:00:33Z",
+      "side": 1,
+      "message": "Too long line.",
+      "revId": "fbf997d8061fd1db72e372c31d6efa671800cdfb",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a1ba32a_9ecc4125",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/validators/CommitMessageLengthValidation.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2016-12-31T17:00:33Z",
+      "side": 1,
+      "message": "Too long line.",
+      "revId": "fbf997d8061fd1db72e372c31d6efa671800cdfb",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a1ba32a_fec1f5ea",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/validators/CommitMessageLengthValidation.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2016-12-31T17:00:33Z",
+      "side": 1,
+      "message": "Can fit on one line.",
+      "range": {
+        "startLine": 128,
+        "startChar": 6,
+        "endLine": 129,
+        "endChar": 46
+      },
+      "revId": "fbf997d8061fd1db72e372c31d6efa671800cdfb",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
