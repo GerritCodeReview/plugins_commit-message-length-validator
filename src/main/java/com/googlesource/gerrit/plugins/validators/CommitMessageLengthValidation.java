@@ -30,8 +30,8 @@ import org.eclipse.jgit.revwalk.RevCommit;
 @Listen
 @Singleton
 public class CommitMessageLengthValidation implements CommitValidationListener {
-  private static final int DEFAULT_MAX_SUBJECT_LENGTH = 65;
-  private static final int DEFAULT_MAX_LINE_LENGTH = 70;
+  private static final int DEFAULT_MAX_SUBJECT_LENGTH = 50;
+  private static final int DEFAULT_MAX_LINE_LENGTH = 72;
   private static final int DEFAULT_LONG_LINES_THRESHOLD = 33;
   private static final boolean DEFAULT_REJECT_TOO_LONG = false;
   private static final String COMMIT_MESSAGE_SECTION = "commitmessage";
