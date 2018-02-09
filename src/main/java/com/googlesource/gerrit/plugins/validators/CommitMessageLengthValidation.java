@@ -13,6 +13,7 @@
 // limitations under the License.
 package com.googlesource.gerrit.plugins.validators;
 
+import com.google.common.base.Splitter;
 import com.google.gerrit.extensions.annotations.Listen;
 import com.google.gerrit.server.config.GerritServerConfig;
 import com.google.gerrit.server.events.CommitReceivedEvent;
@@ -91,7 +92,7 @@ public class CommitMessageLengthValidation implements CommitValidationListener {
 
     int longLineCnt = 0;
     int nonEmptyCnt = 0;
-    for (String line : commit.getFullMessage().split("\n")) {
+    for (String line : Splitter.on('\n').split(commit.getFullMessage())) {
       if (!line.trim().isEmpty()) {
         nonEmptyCnt++;
       }
