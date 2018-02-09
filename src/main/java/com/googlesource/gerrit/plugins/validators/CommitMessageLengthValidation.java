@@ -19,6 +19,7 @@ import com.google.gerrit.server.events.CommitReceivedEvent;
 import com.google.gerrit.server.git.validators.CommitValidationException;
 import com.google.gerrit.server.git.validators.CommitValidationListener;
 import com.google.gerrit.server.git.validators.CommitValidationMessage;
+import com.google.gwt.thirdparty.guava.common.base.Splitter;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import java.util.ArrayList;
@@ -91,7 +92,7 @@ public class CommitMessageLengthValidation implements CommitValidationListener {
 
     int longLineCnt = 0;
     int nonEmptyCnt = 0;
-    for (String line : commit.getFullMessage().split("\n")) {
+    for (String line : Splitter.on('\n').split(commit.getFullMessage())) {
       if (!line.trim().isEmpty()) {
         nonEmptyCnt++;
       }
