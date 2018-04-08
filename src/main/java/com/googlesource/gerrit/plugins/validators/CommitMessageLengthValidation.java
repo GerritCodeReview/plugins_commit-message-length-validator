@@ -14,8 +14,8 @@
 package com.googlesource.gerrit.plugins.validators;
 
 import com.google.common.base.Splitter;
+import com.google.gerrit.config.GerritServerConfig;
 import com.google.gerrit.extensions.annotations.Listen;
-import com.google.gerrit.server.config.GerritServerConfig;
 import com.google.gerrit.server.events.CommitReceivedEvent;
 import com.google.gerrit.server.git.validators.CommitValidationException;
 import com.google.gerrit.server.git.validators.CommitValidationListener;
