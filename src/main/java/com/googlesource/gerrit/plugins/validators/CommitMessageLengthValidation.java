@@ -73,7 +73,7 @@ public class CommitMessageLengthValidation implements CommitValidationListener {
       messagesList.add(new CommitValidationMessage(message, true));
       throw new CommitValidationException("Commit length validation failed", messagesList);
     }
-    messagesList.add(new CommitValidationMessage("(W) " + message, false));
+    messagesList.add(new CommitValidationMessage("warning: " + message, false));
   }
 
   @Override
@@ -87,7 +87,7 @@ public class CommitMessageLengthValidation implements CommitValidationListener {
       onLineTooLong(
           id,
           messages,
-          "commit subject >" + this.maxSubjectLength + " characters; use shorter first paragraph");
+          "subject >" + this.maxSubjectLength + " characters; use shorter first paragraph");
     }
 
     int longLineCnt = 0;
@@ -105,7 +105,7 @@ public class CommitMessageLengthValidation implements CommitValidationListener {
       onLineTooLong(
           id,
           messages,
-          "too many commit message lines longer than "
+          "too many message lines longer than "
               + this.maxLineLength
               + " characters; manually wrap lines");
     }
