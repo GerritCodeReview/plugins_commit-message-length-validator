@@ -64,11 +64,9 @@ public class CommitMessageLengthValidation implements CommitValidationListener {
   }
 
   private void onLineTooLong(
-      final AbbreviatedObjectId id,
       List<CommitValidationMessage> messagesList,
-      final String errorMessage)
+      final String message)
       throws CommitValidationException {
-    final String message = id.name() + ": " + errorMessage;
     if (rejectTooLong) {
       messagesList.add(new CommitValidationMessage(message, true));
       throw new CommitValidationException("Commit length validation failed", messagesList);
@@ -80,12 +78,10 @@ public class CommitMessageLengthValidation implements CommitValidationListener {
   public List<CommitValidationMessage> onCommitReceived(CommitReceivedEvent receiveEvent)
       throws CommitValidationException {
     final RevCommit commit = receiveEvent.commit;
-    final AbbreviatedObjectId id = commit.abbreviate(7);
     List<CommitValidationMessage> messages = new ArrayList<>();
 
     if (this.maxSubjectLength < commit.getShortMessage().length()) {
       onLineTooLong(
-          id,
           messages,
           "subject >" + this.maxSubjectLength + " characters; use shorter first paragraph");
     }
@@ -103,7 +99,6 @@ public class CommitMessageLengthValidation implements CommitValidationListener {
 
     if (longLineCnt > (longLinesThreshold * nonEmptyCnt) / 100) {
       onLineTooLong(
-          id,
           messages,
           "too many message lines longer than "
               + this.maxLineLength
