@@ -24,7 +24,6 @@ import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import java.util.ArrayList;
 import java.util.List;
-import org.eclipse.jgit.lib.AbbreviatedObjectId;
 import org.eclipse.jgit.lib.Config;
 import org.eclipse.jgit.revwalk.RevCommit;
 
@@ -63,9 +62,7 @@ public class CommitMessageLengthValidation implements CommitValidationListener {
     return value >= 0 ? value : defaultValue;
   }
 
-  private void onLineTooLong(
-      List<CommitValidationMessage> messagesList,
-      final String message)
+  private void onLineTooLong(List<CommitValidationMessage> messagesList, final String message)
       throws CommitValidationException {
     if (rejectTooLong) {
       messagesList.add(new CommitValidationMessage(message, true));
