@@ -16,6 +16,10 @@ commitmessage.maxLineLength
 :	Maximum length of a line in the commit message's body.  Defaults
 	to 72 if not specified or less than 0.
 
+commitmessage.maxLinesAllowed
+:	Maximum number of lines allowed in commit message. Defaults
+	to unlimited.
+
 commitmessage.longLinesThreshold
 :	Percentage of commit message lines allowed to exceed the
 	maximum length before a warning or error is generated.  Defaults
