@@ -33,16 +33,19 @@ public class CommitMessageLengthValidation implements CommitValidationListener {
   private static final int DEFAULT_MAX_SUBJECT_LENGTH = 50;
   private static final int DEFAULT_MAX_LINE_LENGTH = 72;
   private static final int DEFAULT_LONG_LINES_THRESHOLD = 33;
+  private static final int DEFAULT_MAX_LINES_ALLOWED = 100;
   private static final boolean DEFAULT_REJECT_TOO_LONG = false;
   private static final String COMMIT_MESSAGE_SECTION = "commitmessage";
   private static final String MAX_SUBJECT_LENGTH_KEY = "maxSubjectLength";
   private static final String MAX_LINE_LENGTH_KEY = "maxLineLength";
+  private static final String MAX_LINES_ALLOWED_KEY = "maxLinesAllowed";
   private static final String REJECT_TOO_LONG_KEY = "rejectTooLong";
   private static final String LONG_LINES_THRESHOLD_KEY = "longLinesThreshold";
 
   private final Config config;
   private final int maxSubjectLength;
   private final int maxLineLength;
+  private final int maxLinesAllowed;
   private final int longLinesThreshold;
   private boolean rejectTooLong;
 
@@ -51,6 +54,7 @@ public class CommitMessageLengthValidation implements CommitValidationListener {
     this.config = gerritConfig;
     this.maxSubjectLength = nonNegativeInt(MAX_SUBJECT_LENGTH_KEY, DEFAULT_MAX_SUBJECT_LENGTH);
     this.maxLineLength = nonNegativeInt(MAX_LINE_LENGTH_KEY, DEFAULT_MAX_LINE_LENGTH);
+    this.maxLinesAllowed = nonNegativeInt(MAX_LINES_ALLOWED_KEY, DEFAULT_MAX_LINES_ALLOWED);
     this.rejectTooLong =
         config.getBoolean(COMMIT_MESSAGE_SECTION, REJECT_TOO_LONG_KEY, DEFAULT_REJECT_TOO_LONG);
     this.longLinesThreshold =
@@ -100,6 +104,15 @@ public class CommitMessageLengthValidation implements CommitValidationListener {
           "too many message lines longer than "
               + this.maxLineLength
               + " characters; manually wrap lines");
+    }
+
+    if (this.maxLinesAllowed < nonEmptyCnt) {
+      onLineTooLong(
+          id,
+          messages,
+          "commit message line count is longer than allowed limit "
+             + this.maxLinesAllowed
+             + "; Reduce the number of lines in commit message and amend it");
     }
 
     return messages;
