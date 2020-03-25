@@ -1,11 +1,13 @@
 {
   "checks": {
     "zuul-check:plugins_commit-message-length-validator": {
-      "state": "SCHEDULED",
-      "message": "Change has been enqueued in check",
+      "state": "NOT_RELEVANT",
+      "message": "Project has no jobs configured",
+      "url": "https://ci.gerritcodereview.com/t/gerrit/buildset/b18eead00e864c2db3a05b075a169f63",
       "started": "2020-03-25T20:31:01Z",
+      "finished": "2020-03-25T20:31:57Z",
       "created": "2020-03-25T20:31:01Z",
-      "updated": "2020-03-25T20:31:01Z"
+      "updated": "2020-03-25T20:31:57Z"
     }
   }
 }
