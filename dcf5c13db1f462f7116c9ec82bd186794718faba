@@ -1,13 +1,9 @@
 {
   "checks": {
     "zuul-check:plugins_commit-message-length-validator": {
-      "state": "FAILED",
-      "message": "Change failed",
-      "url": "https://ci.gerritcodereview.com/t/gerrit/buildset/10385747848f4b1b879fd30d3ad00dc4",
-      "started": "2020-07-08T21:51:43Z",
-      "finished": "2020-07-08T21:59:24Z",
+      "state": "NOT_STARTED",
       "created": "2020-03-25T20:31:01Z",
-      "updated": "2020-07-08T21:59:25Z"
+      "updated": "2020-10-20T21:31:40Z"
     }
   }
 }
