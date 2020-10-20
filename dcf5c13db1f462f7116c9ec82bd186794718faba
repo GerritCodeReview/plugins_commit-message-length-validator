@@ -1,9 +1,12 @@
 {
   "checks": {
     "zuul-check:plugins_commit-message-length-validator": {
-      "state": "NOT_STARTED",
+      "state": "SCHEDULED",
+      "message": "Change has been enqueued in check",
+      "url": "https://ci.gerritcodereview.com/t/gerrit/status/change/239377,4",
+      "started": "2020-10-20T21:32:15Z",
       "created": "2020-03-25T20:31:01Z",
-      "updated": "2020-10-20T21:31:40Z"
+      "updated": "2020-10-20T21:32:16Z"
     }
   }
 }
