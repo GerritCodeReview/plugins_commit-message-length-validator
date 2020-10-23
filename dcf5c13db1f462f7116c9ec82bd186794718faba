@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6299c073_f1a46107",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1003883
+      },
+      "writtenOn": "2020-10-23T17:15:11Z",
+      "side": 1,
+      "message": "To make the \"Bug:\" a valid footer, it must be in the last paragraph which means there cannot be a newline between it and the Change-Id.",
+      "revId": "dcf5c13db1f462f7116c9ec82bd186794718faba",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0bb4fedc_32376991",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/validators/CommitMessageLengthValidation.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1003883
+      },
+      "writtenOn": "2020-10-23T17:15:11Z",
+      "side": 1,
+      "message": "Don\u0027t use \"this\" unless its required, it looks like it is not in a bunch of places here.",
+      "range": {
+        "startLine": 109,
+        "startChar": 8,
+        "endLine": 109,
+        "endChar": 12
+      },
+      "revId": "dcf5c13db1f462f7116c9ec82bd186794718faba",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8242946f_b260614b",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1003883
+      },
+      "writtenOn": "2020-10-23T17:15:11Z",
+      "side": 1,
+      "message": "s/message body and commit messsage line count,/message body and line count,/\n\nor even better might be \"body, and line count,\"",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 22
+      },
+      "revId": "dcf5c13db1f462f7116c9ec82bd186794718faba",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
