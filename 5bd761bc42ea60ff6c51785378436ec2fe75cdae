@@ -3,7 +3,7 @@
     "zuul-check:plugins_commit-message-length-validator": {
       "state": "NOT_STARTED",
       "created": "2023-07-17T13:22:51Z",
-      "updated": "2023-07-17T13:23:31Z"
+      "updated": "2023-07-17T13:25:32Z"
     }
   }
 }
