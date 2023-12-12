@@ -1,13 +1,9 @@
 {
   "checks": {
     "zuul-check:plugins_commit-message-length-validator": {
-      "state": "SUCCESSFUL",
-      "message": "Change passed all voting jobs",
-      "url": "https://ci.gerritcodereview.com/t/gerrit/buildset/a972bb2f6caa41e98758f8f7397a9bfd",
-      "started": "2021-06-17T12:24:17Z",
-      "finished": "2021-06-17T12:31:53Z",
+      "state": "NOT_STARTED",
       "created": "2021-06-17T12:24:17Z",
-      "updated": "2021-06-17T12:31:54Z"
+      "updated": "2023-12-12T11:39:33Z"
     }
   }
 }
