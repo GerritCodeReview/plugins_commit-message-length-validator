@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "d80870ff_3b4d3794",
         "filename": "/COMMIT_MSG",
@@ -20,10 +21,10 @@
         "endChar": 57
       },
       "revId": "51825d7e20ad2eedd544b7853dce7255194ee4eb",
-      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
-      "unresolved": true
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "8016e4af_ad671978",
         "filename": "/COMMIT_MSG",
@@ -44,10 +45,10 @@
         "endChar": 57
       },
       "revId": "51825d7e20ad2eedd544b7853dce7255194ee4eb",
-      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
-      "unresolved": false
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "e18177b6_37d138e0",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/validators/CommitMessageLengthValidation.java",
@@ -67,10 +68,10 @@
         "endChar": 52
       },
       "revId": "51825d7e20ad2eedd544b7853dce7255194ee4eb",
-      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
-      "unresolved": true
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "e46c2a47_605848c7",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/validators/CommitMessageLengthValidation.java",
@@ -91,10 +92,10 @@
         "endChar": 52
       },
       "revId": "51825d7e20ad2eedd544b7853dce7255194ee4eb",
-      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
-      "unresolved": true
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "d7bdde65_c9a021d7",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/validators/CommitMessageLengthValidation.java",
@@ -115,10 +116,10 @@
         "endChar": 52
       },
       "revId": "51825d7e20ad2eedd544b7853dce7255194ee4eb",
-      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
-      "unresolved": false
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "71bad05f_01ea7648",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/validators/CommitMessageLengthValidation.java",
@@ -138,10 +139,10 @@
         "endChar": 19
       },
       "revId": "51825d7e20ad2eedd544b7853dce7255194ee4eb",
-      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
-      "unresolved": true
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "08313f80_92dc0084",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/validators/CommitMessageLengthValidation.java",
@@ -162,10 +163,10 @@
         "endChar": 19
       },
       "revId": "51825d7e20ad2eedd544b7853dce7255194ee4eb",
-      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
-      "unresolved": false
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "213ebfd0_254b66df",
         "filename": "src/main/resources/Documentation/about.md",
@@ -185,10 +186,10 @@
         "endChar": 33
       },
       "revId": "51825d7e20ad2eedd544b7853dce7255194ee4eb",
-      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
-      "unresolved": true
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "db990833_e9dae6df",
         "filename": "src/main/resources/Documentation/about.md",
@@ -208,10 +209,10 @@
         "endChar": 42
       },
       "revId": "51825d7e20ad2eedd544b7853dce7255194ee4eb",
-      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
-      "unresolved": true
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "d4e82960_28151c80",
         "filename": "src/main/resources/Documentation/about.md",
@@ -232,8 +233,31 @@
         "endChar": 33
       },
       "revId": "51825d7e20ad2eedd544b7853dce7255194ee4eb",
-      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
-      "unresolved": false
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "33b9e1ea_b96a912d",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1024898
+      },
+      "writtenOn": "2025-12-09T23:41:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "db990833_e9dae6df",
+      "range": {
+        "startLine": 2,
+        "startChar": 34,
+        "endLine": 2,
+        "endChar": 42
+      },
+      "revId": "51825d7e20ad2eedd544b7853dce7255194ee4eb",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
