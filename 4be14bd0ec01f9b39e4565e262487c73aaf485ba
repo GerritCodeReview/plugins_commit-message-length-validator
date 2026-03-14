@@ -1,13 +1,13 @@
 {
   "checks": {
     "zuul-check:plugins_commit-message-length-validator": {
-      "state": "FAILED",
-      "message": "Change failed",
-      "url": "https://ci.gerritcodereview.com/t/gerrit/buildset/4857b0430e6e4d429e90485c3847d1ca",
-      "started": "2025-12-19T07:49:21Z",
+      "state": "SCHEDULED",
+      "message": "Change has been enqueued in check",
+      "url": "https://ci.gerritcodereview.com/t/gerrit/status/change/535324,1",
+      "started": "2026-03-14T15:33:19Z",
       "finished": "2025-12-19T07:49:21Z",
       "created": "2025-12-19T07:49:22Z",
-      "updated": "2025-12-19T07:49:22Z"
+      "updated": "2026-03-14T15:33:22Z"
     }
   }
 }
