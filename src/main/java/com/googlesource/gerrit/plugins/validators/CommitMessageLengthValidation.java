@@ -80,7 +80,9 @@ public class CommitMessageLengthValidation implements CommitValidationListener {
     if (this.maxSubjectLength < commit.getShortMessage().length()) {
       onLineTooLong(
           messages,
-          "subject >" + this.maxSubjectLength + " characters; use shorter first paragraph");
+          "subject longer than "
+              + this.maxSubjectLength
+              + " characters; use shorter first paragraph");
     }
 
     int longLineCnt = 0;
