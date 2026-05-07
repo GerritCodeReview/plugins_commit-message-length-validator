@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a042f43_828522c2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002666
+      },
+      "writtenOn": "2026-05-07T16:52:34Z",
+      "side": 1,
+      "message": "I\u0027m fine with this, but I would be a little worried about it breaking people parsing the error response.",
+      "revId": "275c528d58a12d8c90cd9755240be06844fdea07",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
