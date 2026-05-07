@@ -65,10 +65,10 @@ public class CommitMessageLengthValidation implements CommitValidationListener {
   private void onLineTooLong(List<CommitValidationMessage> messagesList, final String message)
       throws CommitValidationException {
     if (rejectTooLong) {
-      messagesList.add(new CommitValidationMessage(message, true));
+      messagesList.add(new CommitValidationMessage(message, CommitValidationMessage.Type.ERROR));
       throw new CommitValidationException("Commit length validation failed", messagesList);
     }
-    messagesList.add(new CommitValidationMessage("warning: " + message, false));
+    messagesList.add(new CommitValidationMessage(message, CommitValidationMessage.Type.WARNING));
   }
 
   @Override
