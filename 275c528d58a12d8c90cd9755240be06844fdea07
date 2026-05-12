@@ -16,6 +16,24 @@
       "message": "I\u0027m fine with this, but I would be a little worried about it breaking people parsing the error response.",
       "revId": "275c528d58a12d8c90cd9755240be06844fdea07",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d28c86f8_44c950c5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4270951
+      },
+      "writtenOn": "2026-05-12T17:55:20Z",
+      "side": 1,
+      "message": "One could argue that the previous commit also risk that. And since it is merged we can merge this as well 😃",
+      "parentUuid": "9a042f43_828522c2",
+      "revId": "275c528d58a12d8c90cd9755240be06844fdea07",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
