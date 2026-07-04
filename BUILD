@@ -3,6 +3,7 @@ load("@com_googlesource_gerrit_bazlets//:gerrit_plugin.bzl", "gerrit_plugin")
 gerrit_plugin(
     name = "commit-message-length-validator",
     srcs = glob(["src/main/java/**/*.java"]),
+    flavour = "any",
     manifest_entries = [
         "Gerrit-PluginName: commit-message-length-validator",
     ],
