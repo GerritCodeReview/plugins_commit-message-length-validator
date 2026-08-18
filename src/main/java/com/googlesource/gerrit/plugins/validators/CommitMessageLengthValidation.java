@@ -47,7 +47,7 @@ public class CommitMessageLengthValidation implements CommitValidationListener {
   private boolean rejectTooLong;
 
   @Inject
-  public CommitMessageLengthValidation(@GerritServerConfig Config gerritConfig) {
+  CommitMessageLengthValidation(@GerritServerConfig Config gerritConfig) {
     this.config = gerritConfig;
     this.maxSubjectLength = nonNegativeInt(MAX_SUBJECT_LENGTH_KEY, DEFAULT_MAX_SUBJECT_LENGTH);
     this.maxLineLength = nonNegativeInt(MAX_LINE_LENGTH_KEY, DEFAULT_MAX_LINE_LENGTH);
